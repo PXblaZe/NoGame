@@ -1,6 +1,6 @@
 import java.util.Random;
 
-class Heart { Heart() {}
+class Heart { 
   
   protected static String ui = "";
   protected static int ct = 0;
@@ -14,18 +14,18 @@ class Heart { Heart() {}
     int r2 = rd.nextInt();
     int n1;
     int n2;
-    do { n1 = rd.nextInt((int)Math.pow(10.0D, num));
+    do { n1 = rd.nextInt((int)Math.pow(10, num));
       if (r1 < 0)
       {
         n1 *= -1;
       }
       
-      n2 = rd.nextInt((int)Math.pow(10.0D, num));
+      n2 = rd.nextInt((int)Math.pow(10, num));
       if (r2 < 0)
       {
         n2 *= -1;
       }
-    } while (!(n1 >= (int)Math.pow(10.0D, num - 1)) && !(n2 >= (int)Math.pow(10.0D, num - 1)));
+    } while (!(n1 >= (int)Math.pow(10, num - 1)) && !(n2 >= (int)Math.pow(10, num - 1)));
     System.out.println("First number is " + n1);
     System.out.println("Second number is " + n2);
     System.out.print("Enter their sum = ");
@@ -51,17 +51,19 @@ class Heart { Heart() {}
 
     int r1 = rd.nextInt();
     int r2 = rd.nextInt();
-    int n1 = rd.nextInt((int)Math.pow(10.0D, num));
-    if (r1 < 0)
-    {
-      n1 *= -1;
-    }
-    
-    int n2 = rd.nextInt((int)Math.pow(10.0D, num));
-    if (r2 < 0)
-    {
-      n2 *= -1;
-    }
+	int n1,n2;
+    do { n1 = rd.nextInt((int)Math.pow(10.0D, num));
+      if (r1 < 0)
+      {
+        n1 *= -1;
+      }
+      
+      n2 = rd.nextInt((int)Math.pow(10.0D, num));
+      if (r2 < 0)
+      {
+        n2 *= -1;
+      }
+    } while (!(n1 >= (int)Math.pow(10.0D, num - 1)) && !(n2 >= (int)Math.pow(10.0D, num - 1)));
     System.out.println("First number is " + n1);
     System.out.println("Second number is " + n2);
     System.out.print("Enter their difference = ");
