@@ -29,52 +29,107 @@ class Mainu
                     outsis("0","UserApp.csv");
                 ns.close();
             }while(!(nst.equalsIgnoreCase("Y")||nst.equalsIgnoreCase("n")));
-        }
-        if(cs==-1)
             cs = Byte.valueOf(insis("UserApp.csv"));
+        }    
         if(cs!=-1)
             System.out.println("''WelCome To The Quiz Game''");
-        System.out.print("Enter the length of digit (1-10) :");
-        int ln = s.nextInt(),ch,t=0;
-        System.out.println();
-        if(ln<11&&ln>0)
+        Scanner pos = new Scanner(System.in);
+        System.out.println("Playing Option         Press Key");
+        System.out.println("Demo Game                      1");
+        System.out.println("Levels Game                    2");
+        System.out.print("Enter the Key :-");
+        byte po = pos.nextByte();
+        if(po==1)
         {
-            do
+            if(cs==1)
+                clearTML();
+            System.out.print("Enter the length of digit (1-10) :");
+            int ln = s.nextInt(),ch,t=0;
+            System.out.println();
+            if(ln<11&&ln>0)
             {
-                ch=r.nextInt();
-                if(ch>0)
-                    Heart.add(ln);
-                else if(ch<0)
-                    Heart.sub(ln);
-                if(!(Heart.ui.equalsIgnoreCase("exit")))
-                    t++;
-                System.out.println();
-            }while(!(Heart.ui.equalsIgnoreCase("exit")));
-            System.out.println("Your score is: "+Heart.ct+"/"+t);
-            System.out.println("''Thanks for playing my game!!!''");
-            System.out.println("''Have a good day!!!''");
-        }
-        else
-        {
-            s.close();
-            Scanner sc = new Scanner(System.in);
-            System.out.print("''Invalid Input!!!''\nTry again (Y/n):~");
-            String op = sc.next();
-            if(op.equalsIgnoreCase("Y"))
-            {
-                if(cs==1)
-                    clearTML();
-                outnBgd();
+                do
+                {
+                    ch=r.nextInt();
+                    if(ch>0)
+                        Heart.add(ln);
+                    else if(ch<0)
+                        Heart.sub(ln);
+                    if(!(Heart.ui.equalsIgnoreCase("exit")))
+                        t++;
+                    System.out.println();
+                }while(!(Heart.ui.equalsIgnoreCase("exit")));
+                System.out.println("Your score is: "+Heart.ct+"/"+t);
+                System.out.println("''Thanks for playing my game!!!''");
+                System.out.print("''Have a good day!!!''");
             }
-            if(op.equalsIgnoreCase("n"))
-                System.out.println("''Game End''");
-            sc.close();
+            else
+            {
+                s.close();
+                Scanner sc = new Scanner(System.in);
+                System.out.print("''Invalid Input!!!''\nTry again (Y/n):~");
+                String op = sc.next();
+                if(op.equalsIgnoreCase("Y"))
+                {
+                    if(cs==1)
+                        clearTML();
+                    outnBgd();
+                }
+                if(op.equalsIgnoreCase("n"))
+                {
+                    clearTML();
+                    System.out.print("''Game End''");
+                }
+                sc.close();
+            }
         }
+        else if(po==2)
+        {
+            String[] lth = {"First","Second","Third","Fourth","Fifth",
+                            "Sixth","Seventh","Eirgth","Nineth","Tenth"};
+            byte[] scr = new byte[10];
+            if(cs==1)
+                clearTML();
+            System.out.println("''There will be 10 levels''\n''Each will have 5 questions''");
+            byte lv=1;
+            for(String ath : lth)
+            {
+                System.out.println(ath+" Level--->>>");
+                byte q=1;
+                do
+                {
+                    int ch=r.nextInt();
+                    if(ch>0)
+                        Heart.add(lv);
+                    else if(ch<0)
+                        Heart.sub(lv);
+                    System.out.println();
+                    q++;
+                }while(q<6);
+                System.out.println("Your score of "+ath+" level is: "+Heart.ct+"/"+(q-1));
+                System.out.println();
+                scr[lv-1]=(byte)Heart.ct;
+                Heart.ct=0;
+                lv++;
+            }
+            System.out.println("''Summary''");
+            int si=0;
+            for(String ath : lth)
+            {
+                System.out.println(ath+" Level--->>>");
+                System.out.println("Your score "+ath+"level is: "+scr[si]+"/10");
+                si++;
+            }
+            System.out.println("''Thanks for playing my game!!!''");
+            System.out.print("''Have a good day!!!''");
+        }
+        pos.close();
     }
     private static void clearTML()
     {
         try
         {
+            Thread.sleep(200);
             Robot r = new Robot();
             r.keyPress(17);
             r.keyPress((int)'K');
