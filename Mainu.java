@@ -86,7 +86,7 @@ class Mainu
         else if(po==2)
         {
             String[] lth = {"First","Second","Third","Fourth","Fifth",
-                            "Sixth","Seventh","Eirgth","Nineth","Tenth"};
+                            "Sixth","Seventh","Eighth","Nineth","Tenth"};
             byte[] scr = new byte[10];
             if(cs==1)
                 clearTML();
