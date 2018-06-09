@@ -131,7 +131,8 @@ class Mainu
             for(String ath : lth)
             {
                 System.out.println("| "+ath+" Level--->>>"+chrAdder(" ",42,ath.length()+13)+"|");
-                System.out.println("| Your score of "+ath+" level is: "+scr[si]+"/"+tq+chrAdder(" ",42,ath.length()+Integer.valueOf(scr[si])+String.valueOf(tq).length()+28)+"|");
+                System.out.println("| Your score of "+ath+" level is: "+scr[si]+"/"+tq+chrAdder(" ",42,ath.length()
+				                    +Integer.valueOf(scr[si])+String.valueOf(tq).length()+28)+"|");
                 System.out.println(" "+chrAdder("-",42,0)+" ");
                 si++;
             }
