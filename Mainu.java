@@ -88,9 +88,21 @@ class Mainu
             String[] lth = {"First","Second","Third","Fourth","Fifth",
                             "Sixth","Seventh","Eighth","Nineth","Tenth"};
             byte[] scr = new byte[10];
+            int tq = 5;
             if(cs==1)
                 clearTML();
             System.out.println("''There will be 10 levels''\n''Each will have 5 questions''");
+            Scanner asd = new Scanner(System.in);
+            System.out.print("''Do you like to adjust questions per level ?''(Y/n):~");
+            if(asd.next().equalsIgnoreCase("Y"))
+            {
+                System.out.print("Enter the number(s) of questions per level you want :~");
+                tq = asd.nextInt();
+                asd.close();
+                if(cs==1)clearTML();
+            }
+            if(tq!=5)
+                System.out.println("''There will be 10 levels''\n''Each will have "+tq+" questions''");
             byte lv=1;
             for(String ath : lth)
             {
@@ -105,21 +117,25 @@ class Mainu
                         Heart.sub(lv);
                     System.out.println();
                     q++;
-                }while(q<6);
-                System.out.println("Your score of "+ath+" level is: "+Heart.ct+"/"+(q-1));
+                }while(q<=tq);
+                System.out.println("Your score of "+ath+" level is: "+Heart.ct+"/"+tq);
                 System.out.println();
                 scr[lv-1]=(byte)Heart.ct;
                 Heart.ct=0;
                 lv++;
             }
-            System.out.println("''Summary''");
+            System.out.println(" "+chrAdder("_",42,0));
+            System.out.println("|            ''Summary''--->>>             |");
+            System.out.println(" "+chrAdder("-",42,0));
             int si=0;
             for(String ath : lth)
             {
-                System.out.println(ath+" Level--->>>");
-                System.out.println("Your score "+ath+"level is: "+scr[si]+"/10");
+                System.out.println("| "+ath+" Level--->>>"+chrAdder(" ",42,ath.length()+13)+"|");
+                System.out.println("| Your score of "+ath+" level is: "+scr[si]+"/"+tq+chrAdder(" ",42,ath.length()+Integer.valueOf(scr[si])+String.valueOf(tq).length()+28)+"|");
+                System.out.println(" "+chrAdder("-",42,0)+" ");
                 si++;
             }
+            System.out.println();
             System.out.println("''Thanks for playing my game!!!''");
             System.out.print("''Have a good day!!!''");
         }
@@ -152,11 +168,21 @@ class Mainu
         String pr=null;
         try
         {
-            BufferedReader in = new java.io.BufferedReader(new FileReader(fileName));
+            BufferedReader in = new BufferedReader(new FileReader(fileName));
             String str = null;
             if((str = in.readLine()) != null)
                 pr=str;
         } catch (java.io.IOException e) { System.out.println("Error: " + e); }
         return pr;
+    }
+    private static String chrAdder(String ch , int Tln , int ln)
+    {
+        String st = "";        
+        int x = Tln-ln;
+        for(int i = 0;i<x;i++)
+        {
+            st+=ch;
+        }
+        return st;
     }
 }
