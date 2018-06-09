@@ -41,8 +41,7 @@ class Mainu
         byte po = pos.nextByte();
         if(po==1)
         {
-            if(cs==1)
-                clearTML();
+            if(cs==1)clearTML();
             System.out.print("Enter the length of digit (1-10) :");
             int ln = s.nextInt(),ch,t=0;
             System.out.println();
@@ -71,13 +70,12 @@ class Mainu
                 String op = sc.next();
                 if(op.equalsIgnoreCase("Y"))
                 {
-                    if(cs==1)
-                        clearTML();
+                    if(cs==1)clearTML();
                     outnBgd();
                 }
                 if(op.equalsIgnoreCase("n"))
                 {
-                    clearTML();
+                    if(cs==1)clearTML();
                     System.out.print("''Game End''");
                 }
                 sc.close();
@@ -89,8 +87,7 @@ class Mainu
                             "Sixth","Seventh","Eighth","Nineth","Tenth"};
             byte[] scr = new byte[10];
             int tq = 5;
-            if(cs==1)
-                clearTML();
+            if(cs==1)clearTML();
             System.out.println("''There will be 10 levels''\n''Each will have 5 questions''");
             Scanner asd = new Scanner(System.in);
             System.out.print("''Do you like to adjust questions per level ?''(Y/n):~");
