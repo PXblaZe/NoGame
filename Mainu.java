@@ -104,8 +104,8 @@ class Mainu
             for(String ath : lth)
             {
                 System.out.println(ath+" Level--->>>");
-                byte q=1;
-                do
+                byte q=0;
+                while(q<tq)
                 {
                     int ch=r.nextInt();
                     if(ch>0)
@@ -114,7 +114,7 @@ class Mainu
                         Heart.sub(lv);
                     System.out.println();
                     q++;
-                }while(q<=tq);
+                }
                 System.out.println("Your score of "+ath+" level is: "+Heart.ct+"/"+tq);
                 System.out.println();
                 scr[lv-1]=(byte)Heart.ct;
