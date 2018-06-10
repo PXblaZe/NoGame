@@ -86,7 +86,7 @@ class Mainu
             String[] lth = {"First","Second","Third","Fourth","Fifth",
                             "Sixth","Seventh","Eighth","Nineth","Tenth"};
             byte[] scr = new byte[10];
-            int tq = 5;
+            byte tq = 5;
             if(cs==1)clearTML();
             System.out.println("''There will be 10 levels''\n''Each will have 5 questions''");
             Scanner asd = new Scanner(System.in);
@@ -94,7 +94,7 @@ class Mainu
             if(asd.next().equalsIgnoreCase("Y"))
             {
                 System.out.print("Enter the number(s) of questions per level you want :~");
-                tq = asd.nextInt();
+                tq = asd.nextByte();
                 asd.close();
                 if(cs==1)clearTML();
             }
@@ -129,7 +129,7 @@ class Mainu
             {
                 System.out.println("| "+ath+" Level--->>>"+chrAdder(" ",42,ath.length()+13)+"|");
                 System.out.println("| Your score of "+ath+" level is: "+scr[si]+"/"+tq+chrAdder(" ",42,ath.length()
-				                    +Integer.valueOf(scr[si])+String.valueOf(tq).length()+28)+"|");
+				                    +String.valueOf(scr[si]).length()+String.valueOf(tq).length()+27)+"|");
                 System.out.println(" "+chrAdder("-",42,0)+" ");
                 si++;
             }
