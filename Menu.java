@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
-class Mainu
+class Menu
 {
     protected static void outnBgd()
     {
@@ -33,10 +33,12 @@ class Mainu
         }    
         if(cs!=-1)
             System.out.println("''WelCome To The Quiz Game''");
+        clearTML();
         Scanner pos = new Scanner(System.in);
         System.out.println("Playing Option         Press Key");
         System.out.println("Demo Game                      1");
         System.out.println("Levels Game                    2");
+        System.out.println("Exit                           3");
         System.out.print("Enter the Key :-");
         byte po = pos.nextByte();
         if(po==1)
@@ -129,13 +131,26 @@ class Mainu
             {
                 System.out.println("| "+ath+" Level--->>>"+chrAdder(" ",42,ath.length()+13)+"|");
                 System.out.println("| Your score of "+ath+" level is: "+scr[si]+"/"+tq+chrAdder(" ",42,ath.length()
-				                    +String.valueOf(scr[si]).length()+String.valueOf(tq).length()+27)+"|");
+                                    +String.valueOf(scr[si]).length()+String.valueOf(tq).length()+27)+"|");
                 System.out.println(" "+chrAdder("-",42,0)+" ");
                 si++;
             }
             System.out.println();
             System.out.println("''Thanks for playing my game!!!''");
             System.out.print("''Have a good day!!!''");
+        }
+        else if(po == 3)
+        {
+            clearTML();
+            try
+            {
+                Thread.sleep(200);
+                Robot rx = new Robot();
+                rx.keyPress(17);
+                rx.keyPress((int)'W');
+                rx.keyRelease(17);
+                rx.keyRelease((int)'W');
+            }catch(Exception e){}
         }
         pos.close();
     }
